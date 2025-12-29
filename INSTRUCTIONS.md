@@ -1,5 +1,5 @@
 # Usage
-At `react-flask-app/api', run: 
+At `inf-tic-tac-toe/api', run: 
 ```aiignore
 flask run
 ```
@@ -7,6 +7,15 @@ flask run
 At the root, run: 
 ```aiignore
 npm run dev
+```
+
+# Troubleshooting
+If error `'flask' not found`: 
+Run the virtual environment, in `inf-tic-tac-toe/api': 
+```aiignore
+python3 -m venv venv
+. venv/bin/activate
+pip install flask python-dotenv 
 ```
 
 This project cannot simply use classical minimax/negamax, because there are no terminal 
