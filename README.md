@@ -38,3 +38,8 @@ python3 -m venv venv
 . venv/bin/activate
 pip install flask python-dotenv 
 ```
+
+# Potential Improvements
+
+- make a slider for weakest to strongest AI player
+- randomize AI to be either X or O
