@@ -68,13 +68,13 @@ function App() {
   return (
     <>
         <button
-            className="reset-button"
+            className="resetButton"
             onClick={resetBoard}
             >
             Reset
         </button>
         <button
-            className="playai-button"
+            className="aiButton"
             onClick={startAI}
             >
             Play AI
@@ -84,7 +84,7 @@ function App() {
           {board.map((cell, index) => (
               <button
                   key={index}
-                  className="cell"
+                  className={`cell ${cell}`}
                   onClick={() => handleClick(index)}
                   disabled={cell !== "" || winner || thinking}
               >

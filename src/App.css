@@ -3,18 +3,20 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  color: #9C1A1C;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 10px;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
   aspect-ratio: auto;
   width: 400px;
   height: 320px;
+  background: #c14848;
+  border-radius: 23px;
+  padding: 5px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .cell {
@@ -26,6 +28,32 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  border-right: 3px solid #555;
+  border-bottom: 3px solid #555;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  color: #ff0000;
+}
+
+/*remove outer borders*/
+.cell:nth-child(3n) {
+  border-right: none;
+}
+.cell:nth-child(n+7) {
+  border-bottom: none;
+}
+
+.cell:not(.X):not(.O):hover {
+  background-color: #536270;
+}
+
+.cell.X {
+  color: #e63946;
+}
+.cell.O {
+  color: #72e774;
+}
+.cell:active {
+  transform: scale(0.95);
 }
 
 .winner {
@@ -33,18 +61,15 @@
   font-size: 4rem;
 }
 
-.resetButton {
-  margin-top: 1rem;
-  padding: 1rem 2rem;
-  font-size: 2rem;
+.resetButton, .aiButton {
+  padding: 0.8rem 1.6rem;
+  margin: 0.5rem;
+  font-size: 1rem;
   cursor: pointer;
-  margin-bottom: 1rem;
+  color: #c14848;
+  transition: transform 0.1s ease, background 0.2s ease;
 }
 
-.aiButton {
-  margin-top: 1rem;
-  padding: 1rem 2rem;
-  font-size: 2rem;
-  cursor: pointer;
-  margin-bottom: 1rem;
+.resetButton:hover, .aiButton:hover {
+  background: #536270;
 }
