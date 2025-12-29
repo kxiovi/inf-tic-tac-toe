@@ -1,16 +1,40 @@
-# React + Vite
+# Brief Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Using React + Vite, I've created a custom AI to play 
+infinite Tic-Tac-Toe (TTT) optimally. 
 
-Currently, two official plugins are available:
+Infinite TTT is just like classical TTT but prevents draws by removing the 4th oldest
+move of each player. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I had to use a custom search implementation because infinite TTT does 
+not have terminal end nodes, thus many simulation based
+search techniques, and terminal node based search techniques do not work. 
+This rules out classical minimax/negamax and Monte Carlo. Thus, the project uses a custom AI that only looks
+1 move ahead and prioritizes the optimal outcome (draw). Since infinite TTT does not allow
+for draws, the AI can either win, or the games keeps going on for infinity.
 
-## React Compiler
+Also, because TTT is a relatively small board space,
+and the AI is thinking only one move ahead, I've used copies
+of the board rather than doing and undoing moves.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Usage
 
-## Expanding the ESLint configuration
+At `inf-tic-tac-toe/api', run:
+```aiignore
+flask run
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+At the root, run:
+```aiignore
+npm run dev
+```
+
+# Troubleshooting
+
+If error `'flask' not found`:
+Run the virtual environment, in `inf-tic-tac-toe/api':
+```aiignore
+python3 -m venv venv
+. venv/bin/activate
+pip install flask python-dotenv 
+```
